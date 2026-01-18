@@ -1,0 +1,15 @@
+{
+  "name": "kovan-backend",
+  "version": "1.0.0",
+  "description": "Backend API for Kovan project management platform",
+  "main": "dist/index.js",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "test": "jest"
+  },
+  "keywords": ["express", "typescript", "prisma", "postgresql"],
+  "author": "",
+  "license": "MIT"
+}
