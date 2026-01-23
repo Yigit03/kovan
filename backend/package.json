@@ -9,7 +9,24 @@
     "start": "node dist/index.js",
     "test": "jest"
   },
-  "keywords": ["express", "typescript", "prisma", "postgresql"],
+  "keywords": [
+    "express",
+    "typescript",
+    "prisma",
+    "postgresql"
+  ],
   "author": "",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "cors": "^2.8.6",
+    "dotenv": "^17.2.3",
+    "jsonwebtoken": "^9.0.3"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.6",
+    "@types/jsonwebtoken": "^9.0.10"
+  }
 }
