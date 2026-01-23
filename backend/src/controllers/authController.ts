@@ -145,3 +145,32 @@ export const login = async (req: Request, res: Response): Promise<void> => {
     } as AuthResponse);
   }
 };
+
+// Get current user (korumalı route)
+// Bu controller, kimliği doğrulanmış (authenticated) kullanıcının bilgilerini döner.
+// Genellikle JWT auth middleware’inden sonra çalışan protected endpoint’lerde kullanılır.
+export const getCurrentUser = (req: Request, res: Response): void => {
+ 
+  // Middleware tarafından request nesnesine eklenen kullanıcı bilgisi
+  // Örneğin bir auth middleware, JWT’yi doğruladıktan sonra:
+  // req.user = decodedToken veya req.user = databaseUser şeklinde set eder
+  const user = req.user;
+
+  // HTTP 200 (OK) status code ile başarılı bir response döner
+  res.status(200).json({
+
+    // API response’un başarılı olduğunu belirtir
+    status: 'success',
+
+    // İstemciye (frontend) okunabilir bir başarı mesajı gönderir
+    message: 'User retrieved successfully',
+
+    // Response’un asıl verisini taşıyan alan
+    data: {
+
+      // Middleware’den gelen ve şu an giriş yapmış olan kullanıcı bilgisi
+      // Bu genellikle password içermeyen, güvenli bir user objesidir
+      user
+    }
+  });
+};
